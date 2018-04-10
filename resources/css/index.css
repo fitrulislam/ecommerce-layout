@@ -1,0 +1,65 @@
+html, body {
+  height: 100%;
+}
+
+.navbar {
+  margin-bottom: 0px !important;
+}
+
+.sticky-top {
+  margin-top: 56px;
+}
+
+.nav-link {
+  color: white;
+  font-weight: bold;
+}
+
+.relative {
+  position: relative;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.special {
+  color: black;
+}
+
+#content {
+  padding-bottom: relative;
+}
+
+.jumbotron {
+  background-image: url('../images/background.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+h1, p {
+  color: white;
+  font-weight: bold;
+}
+
+img.image {
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  align items: flex-start;
+  justify-content: space-around;
+}
+
+.liOptions {
+  color: black
+}
+
+footer {
+  background-color: grey;
+  color: white;
+  font-weight: bold;
+}
