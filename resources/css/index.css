@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Do+Hyeon');
+
 html, body {
   height: 100%;
 }
@@ -25,6 +27,11 @@ html, body {
 
 .special {
   color: black;
+}
+
+.mx-auto {
+  font-family: 'Do Hyeon', sans-serif;
+  font-size: 21px;
 }
 
 #content {
@@ -56,6 +63,10 @@ img.image {
 
 .liOptions {
   color: black
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
 }
 
 footer {
