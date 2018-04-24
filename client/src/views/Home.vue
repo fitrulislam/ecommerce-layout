@@ -46,27 +46,6 @@
       <div class="collapse navbar-collapse order-2 navbarCollapse2">
         <div class="navbar-collapse dual-collapse2">
           <ul class="navbar-nav ml-auto">
-            <div class="dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Sign In
-                </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <div class="container">
-                  <form class="form-signin">
-                    <h1 class="h5 mb-3 font-weight-normal" style="color: black;">Foot Crown Sign In</h1><br>
-                    <input type="email" id="inputUsername" class="form-control" placeholder="Username"><br>
-                    <input type="password" id="inputPassword" class="form-control" placeholder="Password"><br>
-                    <div class="checkbox mb-3">
-                      <label>
-                          <input type="checkbox" value="remember-me"> Remember me
-                          </label>
-                    </div>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button><br>
-                    <p>Don't have an account? Please <a href="./signup.html">Sign Up</a></p>
-                  </form>
-                </div>
-              </div>
-            </div>
             <li class="nav-item">
               <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal">
                   Shopping Cart
@@ -90,7 +69,7 @@
             <div v-for="(val, index) in cart" v-bind:key="index">
               <div v-if="val.quantity > 0">
                 <div class="font-weight-bold">
-                  <img class="image" v-bind:src="val.src" width="50" /> Price: {{ val.price }} || Quantity: {{ val.quantity }}
+                  <img class="image" v-bind:src="val.image" width="50" /> Price: {{ val.price }} || Quantity: {{ val.quantity }}
                   <button v-on:click="deleteCart(val)" class="btn-danger">Delete</button>
                 </div><br>
               </div>
@@ -118,7 +97,7 @@
         <div class="col-md-12 flex-container">
           <div v-for="(item, index) in items" v-bind:key="index">
             <div>
-              <img class="image" v-bind:src="item.src" />
+              <img class="image" v-bind:src="item.image" />
             </div><br>
             <div class="font-weight-bold">
               Price: {{ item.price }} || Stock: {{ item.stock }}
@@ -168,7 +147,7 @@ export default {
     }
   },
   created: function () {
-    axios.get('http://localhost:3000/item/read')
+    axios.get('http://35.185.181.118/item/read')
       .then(response => {
         this.$store.commit('addItems', response.data.data)
       })

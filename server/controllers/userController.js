@@ -28,18 +28,14 @@ module.exports = {
       })
   },
   signin: (req,res)=>{
-    console.log(req.body)
     User.find({
       username: req.body.username
     })
       .then(user=>{
-        console.log(user)
-        console.log(secret)
         if(user.length>0){
           let compare = bcrypt.compareSync(req.body.password, user[0].password)
-          console.log(compare)
           if(compare==true){
-            let token = jwt.sign({id: user[0]._id}, secret)
+            let token = jwt.sign({id: user[0]._id, role: 'admin'}, secret)
             res.status(200).json({
               message: 'user successful login',
               token: token
