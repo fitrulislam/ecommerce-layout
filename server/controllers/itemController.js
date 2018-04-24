@@ -2,7 +2,13 @@ const Item = require('../models/item')
 
 module.exports = {
   create: (req,res)=>{
-    const newItem = new Item(req.body)
+    let obj = {
+      name: req.body.name,
+      price: req.body.price,
+      stock: req.body.stok,
+      req.files.link[0].cloudStoragePublicUrl
+    }
+    const newItem = new Item(obj)
     newItem.save()
       .then(item=>{
         res.status(201).json({

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
 
 Vue.use(Vuex)
 
@@ -7,11 +8,13 @@ export default new Vuex.Store({
   state: {
     items: [{
       _id: 1,
+      name: 'Sepatu Kuda',
       price: 400000,
       stock: 3,
       src: 'darimana ya'
     }, {
       _id: 2,
+      name: 'Torpedo Kuda',
       price: 300000,
       stock: 4,
       src: 'darimana mana'
@@ -67,6 +70,9 @@ export default new Vuex.Store({
           }
         })
       })
+    },
+    editData (state, payload) {
+      axios.get('http://localhost:3000/item/')
     }
   },
   actions: {

@@ -47,25 +47,9 @@
         <div class="navbar-collapse dual-collapse2">
           <ul class="navbar-nav ml-auto">
             <div class="dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Sign In
-                </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <div class="container">
-                  <form class="form-signin">
-                    <h1 class="h5 mb-3 font-weight-normal" style="color: black;">Foot Crown Sign In</h1><br>
-                    <input type="email" id="inputUsername" class="form-control" placeholder="Username"><br>
-                    <input type="password" id="inputPassword" class="form-control" placeholder="Password"><br>
-                    <div class="checkbox mb-3">
-                      <label>
-                          <input type="checkbox" value="remember-me"> Remember me
-                          </label>
-                    </div>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button><br>
-                    <p>Don't have an account? Please <a href="./signup.html">Sign Up</a></p>
-                  </form>
-                </div>
-              </div>
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Sign In
+              </a>
             </div>
             <li class="nav-item">
               <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal">
