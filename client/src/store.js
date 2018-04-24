@@ -6,24 +6,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    items: [{
-      _id: 1,
-      name: 'Sepatu Kuda',
-      price: 400000,
-      stock: 3,
-      src: 'darimana ya'
-    }, {
-      _id: 2,
-      name: 'Torpedo Kuda',
-      price: 300000,
-      stock: 4,
-      src: 'darimana mana'
-    }],
+    items: [],
     cart: []
   },
   mutations: {
     addItems (state, payload) {
-      state.items.push(payload)
+      state.items = payload
     },
     addCart (state, payload) {
       state.items.forEach(item => {
@@ -40,7 +28,7 @@ export default new Vuex.Store({
           if (count === 0) {
             let obj = {
               itemId: payload._id,
-              src: payload.src,
+              image: payload.image,
               price: payload.price,
               quantity: 1
             }
@@ -71,11 +59,35 @@ export default new Vuex.Store({
         })
       })
     },
-    editData (state, payload) {
-      axios.get('http://localhost:3000/item/')
+    addData (state, payload) {
+      axios.post('http://35.185.181.118/item/create', payload, {
+        headers: {token: localStorage.getItem('token')}
+      })
+        .then(response => {
+          console.log('auo')
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    },
+    deleteData (state, payload) {
+      axios.post(`http://35.185.181.118/item/delete/${payload}`, {}, {
+        headers: {token: localStorage.getItem('token')}
+      })
+        .then(response => {
+          location.reload()
+        })
+        .catch(err => {
+          console.log(err)
+        })
     }
   },
   actions: {
-
+    addData ({ commit }, payload) {
+      commit('addData', payload)
+    },
+    deleteData ({ commit }, payload) {
+      commit('deleteData', payload)
+    }
   }
 })

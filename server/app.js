@@ -5,7 +5,7 @@ require('dotenv').config()
 const app = express()
 
 const mongoose = require('mongoose')
-const url = 'mongodb://localhost:27017/blog'
+const url = 'mongodb://admin:admin@ds059375.mlab.com:59375/ikomers'
 mongoose.connect(url, (err) => {
   if(!err) console.log('connected to database')
   else throw new Error(err)
@@ -22,7 +22,7 @@ app.get('/', (req,res)=>{
   res.send('Home')
 })
 
-app.use('/item', require('./routes/article'))
+app.use('/item', require('./routes/item'))
 app.use('/user', require('./routes/user'))
 
 app.listen(port,function(req,res){

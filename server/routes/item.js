@@ -1,18 +1,12 @@
 const router = require('express').Router()
 const itemController = require('../controllers/itemController')
 const multer = require('multer')
-const { sendFileGCS } = require('../middlewares/uploadGCS')
-const upload = multer({
-  storage: multer.memoryStorage(),
-  limits: {
-    fileSize: 50 * 1024 * 1024
-  }
-})
+const images = require('../middleware/images')
+const { isUser } = require('../middleware/auth')
 
 router
-  .post('/create', itemController.create)
-  .get('/read', upload.fields([{name: 'link', maxCount: 1}]), sendFileGCS, itemController.read)
-  .put('/edit/:id', itemController.update)
-  .post('/delete/:title', itemController.delete)
+  .post('/create', isUser, images.multer.single('image'), images.sendUploadToGCS, itemController.create)
+  .get('/read', itemController.read)
+  .post('/delete/:id', isUser, itemController.delete)
 
 module.exports = router

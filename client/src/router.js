@@ -16,7 +16,15 @@ export default new Router({
     {
       path: '/admin/login',
       name: 'adminlogin',
-      component: AdminLogin
+      component: AdminLogin,
+      beforeEnter: (to, from, next) => {
+        let status = localStorage.getItem('status')
+        if (status !== 'connected') {
+          next()
+        } else {
+          next('/admin/input')
+        }
+      }
     },
     {
       path: '/admin/input',
